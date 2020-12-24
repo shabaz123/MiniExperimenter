@@ -14,10 +14,14 @@ At the next layer, let's call it the 'Low Layer Protocol', bytes of data are sen
 
 Here's the state machine for Send38K and Receive38K procedures (other procedures are possible too, but the code does not implement them).
 
-<img src="images/low-layer-state-machine.png" width="640" style="float:left">
+<img src="images/low-layer-state-machine.png" width="720" style="float:left">
+
+The Send38K procedure is used whenever the calculator wishes to send some information. The procedure allows for that information to be sent in ASCII form, or as raw hex bytes. The Receive38K procedure is used by the calculator whenever it wishes to receive data. The calculator still initiates the procedure, i.e. it acts like a controller, and the remote device acts like a peripheral and responds.
 
 ## High Layer Protocol
 Next, there is a 'High Layer Protocol', which uses multiple low-layer Send38K and Receive38K procedures to achieve things. 
 For example, to perform charting of data, the calculator will initiate many Send38K and Receive38K procedures to get the remote device ready for sampling. The diagram below shows the detail. Note that even though the Receive38K procedures arrow points from the remote device to the calculator, by examining the low layer detail earlier, you can see that the calculator initiates the Receive38K procedures too.
 
 <img src="images/high-layer-protocol-sampling-procedures.png" width="640" style="float:left">
+
+In the diagram above, as an example, the arrow labelled D contains a Send38K procedure with the data "1,1,2" sent as an ASCII string. According to the EA-200 documentation mentioned earlier, the first value 1 means "Command 1" which means "Set Channel". The second value 1 means Channel 1. The third value, 2, means "Voltage mode". So, the command "1,1,2" instructs the remote device to configure its channel 1 to be set to voltage measurement mode.
