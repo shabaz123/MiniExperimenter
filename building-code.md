@@ -13,7 +13,7 @@ First off, go to https://os.mbed.com/ and create a free account. Then from the t
 
 Create a new program, and select the Thunderboard as the platform and choose an example program. You’ll eventually see a main.cpp file listed. Click on it, and the contents will appear in an editor inside the browser! Now you can edit the code, save it, and press Compile when you’re ready to try it out. If the code compiles successfully then a .bin file will automatically be downloaded by the browser, into your usual downloaded items folder. Then you can drag-and-drop the .bin file into the Thunderboard folder as described earlier.
 
-For now, just to test the process, you could immediately hit Compile without making any changes to main.cpp, and see the built code download onto your PC, and then you can drag it into the Thunderboard folder.
+For now, just to test the process, you could immediately hit Compile without making any changes to main.cpp, and see the built code download onto your PC, and then you can drag it into the Thunderboard folder. NOTE: If you're experiencing difficulty at this point, and the code isn't transferring, or isn't running as expected, then it is highly likely that the 'debugger firmware' on the Thunderboard Sense 2 needs upgrading. This is a one-time thing that will need to be done. To do that, follow the Thunderboard Sense 2 Debugger Upgrading Procedure and then come back here and try again.
 
 ### Building the Code
 Create a new program in Mbed.
@@ -32,7 +32,7 @@ Some template code will appear. You can select it all and hit delete, so that yo
 
 <img src="images/mbed40.png" style="float:left">
 
-Next, go to the main.cpp code in the MiniExperimenter github site. View the code as raw, select it all, and then copy-paste it into the Mbed editor. Now click on Save and then Compile.
+Next, go to the main.cpp code in the MiniExperimenter github site. [View the code as raw](https://raw.githubusercontent.com/shabaz123/MiniExperimenter/main/code/tbsense2/main.cpp), select it all, and then copy-paste it into the Mbed editor. Now click on Save and then Compile.
 
 <img src="images/mbed50.png" style="float:left">
 
