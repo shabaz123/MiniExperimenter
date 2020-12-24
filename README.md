@@ -32,5 +32,67 @@ To use the project, at a high level, there are these main steps which are descri
 * Now that the calculator is reporting the current light level, you can try charting it. Press the Start soft-key. You will see a checklist appear. Press Exe and the calculator will try to set (configure) the sensor/microcontroller board with the configured values such as the interval time and desired number of samples. You may see a Communication Error message (see the list of known issues). If this occurs, press Exit until you're back at the Time-based Sampling screen, wait until you see a measured value reported again, and then try pressing Start again. If you can't get this to work, press the Reset button on the sensor/microcontroller board. Eventually it should work.
 * If all goes well, the calculator will have successfully transferred the sampling configuration parameters to the microcontroller board, and you should now see a screen with the text "Start sampling? Press EXE". Press EXE, and the values should be plotted. Try changing the light level around the board, and the chart line should go up or down. Once the chart has plotted the configured number of data points (e.g. 100), you can do things like (say) press the Trace button to see a cursor on the chart, and move left/right with the cursor keys to see each sample value. Press Exit to get out of Trace mode. Press Exit again to get back to the Time-based Sampling screen.
 
+## How does the code work?
+The Casio calculator uses a [special protocol](protocol.md) to be able to send and receive values from the microcontroller/sensor board. By sending certain configuration values, the calculator instructs the microcontroller to set up it's hardware for particular channels, type of sensor, and the desired rate and number of samples. The microcontroller performs the measurements and sends the data to the calculator.
+Refer to the protocol detail to understand approximately how the code works. The main state machine state names are also listed there.
 
+## Debugging
+When the microcontroller board is running, it is also sending debug output over the USB port. So, to debug, you can run USB serial terminal software (such as PuTTY) on the PC and observe the output. Connect at 115200 baud to do this. The level of debug can be set when the code is built. As an example, here is some debug output where the debug level has been set to output a sort of ping-pong diagram (message sequence diagram) of all the lower layer communication between the calculator and the microcontroller. To do this, just make sure that the code contains the line **#define PINGPONG 1**
+
+```
+CASIO                            MiniE
+  |                                |
+  |                                |
+  |                          **COMM_IDLE**
+  |------0x15-CASIO-START-IND----->|
+  |<-----------CODEA_OK------------|
+  |                    COMM_WAITING_INSTRUCTION
+  |---NAV,L=1,O=1,P=1,A----------->|
+  |<-----------CODEB_OK------------|
+  |                       COMM_WAITING_DATA
+  |--------7-STATUS_CHECK--------->|
+  |<-----------CODEB_OK------------|
+  |                                |
+  |                          **COMM_IDLE**
+  |------0x15-CASIO-START-IND----->|
+  |<-----------CODEA_OK------------|
+```
+Alternatively you can modify the code to set **#define HLPP 1** and rebuild it, so that a more higher-level protocol debug output can occur such as this:
+
+```
+CASIO                            MiniE
+  |                                |
+  |---S38K: 6,4------------------->|
+  |---S38K: 7--------------------->|
+  |<--R38K: 1----------------------|
+  |---S38K: 0--------------------->|
+  |---S38K: 1,1,2----------------->|
+  |---S38K: 10,-2----------------->|
+  |---S38K: 12,1------------------>|
+  |---S38K: 7--------------------->|
+  |<--R38K: 0.4981-----------------|
+  |---S38K: 3,0.2,100,0,-1-------->|
+  ```
+  
+  To understand what all this means, refer to the [protocol documentation](protocol.md). 
+  
+  You can also just have some developer debug output (by setting **#define DEVELOPER 1** in the code) such as this:
+  
+  ```
+waiting start indicator
+waiting instruction
+received instruction:
+3a,4e,41,4c,00,02,00,00,00,01,00,03,ff,41,df  text: ':NAL.........A.'
+instruction decoded
+received data packet:
+3a,36,2c,30,6e  text: ':6,0n'
+number of tokens found: 2
+waiting instruction
+received instruction:
+3a,4e,41,4c,00,01,00,00,00,01,00,01,ff,41,e2  text: ':NAL.........A.'
+instruction decoded
+received data packet:
+3a,30,d0  text: ':0.'
+number of tokens found: 1
+```
 
