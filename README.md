@@ -23,7 +23,7 @@ The known issues are:
 
 ## Using the Project
 To use the project, at a high level, there are these main steps which are described in more detail later:
-* [Solder a 3-pin connector](hardware-connections.md)to the off-the-shelf sensor/microcontroller board
+* [Solder a 3-pin connector](hardware-connections.md) to the off-the-shelf sensor/microcontroller board
 * Build the code, to create a .bin file
 * Transfer the code to the sensor/microcontroller board
 * Connect the board to the calculator using the 3-pin connector, and supply power to it (can use a USB supply or plug into a PC)
