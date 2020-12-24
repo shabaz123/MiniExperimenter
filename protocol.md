@@ -25,3 +25,6 @@ For example, to perform charting of data, the calculator will initiate many Send
 <img src="images/high-layer-protocol-sampling-procedures.png" width="640" style="float:left">
 
 In the diagram above, as an example, the arrow labelled D contains a Send38K procedure with the data "1,1,2" sent as an ASCII string. According to the EA-200 documentation mentioned earlier, the first value 1 means "Command 1" which means "Set Channel". The second value 1 means Channel 1. The third value, 2, means "Voltage mode". So, the command "1,1,2" instructs the remote device to configure its channel 1 to be set to voltage measurement mode.
+
+In a simlar vein, it can be deduced that the arrow marked J is used to instruct the remote device that samples should be taken every 0.2 seconds, and that 101 samples are requested.
+
