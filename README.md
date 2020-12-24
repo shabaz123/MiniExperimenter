@@ -24,8 +24,8 @@ The known issues are:
 ## Using the Project
 To use the project, at a high level, there are these main steps which are described in more detail later:
 * [Solder a 3-pin connector](hardware-connections.md) to the off-the-shelf sensor/microcontroller board
-* Build the code, to create a .bin file
-* Transfer the code to the sensor/microcontroller board
+* [Build the code](building-code.md), to create a .bin file
+* [Transfer the code](building-code.md) to the sensor/microcontroller board
 * Connect the board to the calculator using the 3-pin connector, and supply power to it (can use a USB supply or plug into a PC)
 * On your Casio calculator (which should be running the latest firmware from the Casio website) select Menu->E-CON4. E-CON4 is the built-in application for data capture/logging/charting. You should see a screen titled Time-based Sampling and row 1 will be highlighted (row 1 represents channel 1; the calculator supports multiple data acquisition channels).
 * Configure the calculator as follows: Press Shift then Setup, and select the Data Logger to be EA-200 and then press EXE or Exit. ensure row 1 is selected on the screen (it should be by default, otherwise use the cursor keys to select the row number 1) and then press the Sensor soft-key and select CASIO from the list, and then select Voltage from the sub-list that appears. Press the Config soft-key, and set the sampling interval to 0.2 seconds or higher, and the Samples value to something reasonable for a first test, such as 100 samples. Do not set a sampling interval lower than 0.2 seconds, due to one of the known issues listed above. Once you're set, press Exit until you're back on the display titled Time-based Sampling. You should eventually see a voltage value displayed immediately under the row labeled "1:Voltage". It may take around 10 seconds for this to occur. If it doesn't, press the Reset button on the sensor/microcontroller board, and wait another 10 seconds.
