@@ -96,3 +96,7 @@ received data packet:
 number of tokens found: 1
 ```
 
+## Parts Required
+Not a lot is needed to create this project. Apart from the calculator (Casio fx-CG50) all that is required is a microcontroller board with 3.3V logic levels, and a 2.5mm 3-way plug (like a headphone plug but thinner). And some wire.
+The **Thunderboard Sense 2** is a suitable USB-powered microcontroller board with many in-built sensors. For the plug, **Multicomp PSG01492** works, however the plastic outer barrel is too wide in diameter, and won't allow the plug to click into place properly. The barrel needs to be removed. I used heatshrink sleeving instead, because it is thinner. Refer to the [connections diagram](hardware-connections.md) to see how to wire the plug to the Thunderboard. 
+
