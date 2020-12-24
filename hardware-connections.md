@@ -5,7 +5,9 @@ If you wish to try a board not discussed here, then the main requirement is the 
 # Silicon Labs Thunderboard Sense 2
 
 The photo here shows the required connections.
+<img src="images/thunderboard-connections.jpg" width="640" style="float:left">
 
 Note that the 2.5 mm plug barrel needs to be quite narrow (7.5 mm or less) because the socket on the calculator is recessed. Even with a narrow barrel, the connector may still need a bit of force to fully be inserted.
 If you cannot find a narrow barrel, you could discard it and use heatshrink as shown in the photo below.
+<img src="images/thunderboard-soldered.jpg" width="640" style="float:left">
 
