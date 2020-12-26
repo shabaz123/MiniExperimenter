@@ -1,2 +1,2 @@
-## index.md
+## Introduction
 [Click here](README.md)
