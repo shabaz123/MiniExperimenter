@@ -1,6 +1,8 @@
 # Building the Code
 
-The details differ depending on which microcontroller board is used.
+The details differ depending on which microcontroller board is used. Currently two boards are supported:
+* Silicon Labs Thunderboard Sense 2
+* ESP32-WROOM-32 (ESP32) modules/boards
 
 ## Silicon Labs Thunderboard Sense 2
 
@@ -60,5 +62,7 @@ If you wish to see what the program is doing, then use a Serial Terminal program
 
 You can now plug the board into the Casio calculator, and run the E-CON4 application that is built-in to the calculator.
 
-
+## ESP32-WROOM-32 (ESP32) modules/boards
+The ESP32-WROOM-32 is a compact (stamp-sized) surface-mount module which is available on its own, or soldered onto boards. Although this project supports ESP32, it is a slightly more advanced exercise to get it going compared to the Thunderboard Sense 2. To get the ESP32 code built entails installing a software development kit (SDK) (which itself relies on installing Python), whereas code for the Thunderboard Sense 2 can be built with a few clicks in a browser, since the Mbed environment it uses can be cloud based.
+More details to follow.
 
