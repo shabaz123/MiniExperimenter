@@ -8,8 +8,9 @@ This repository contains the code that will run on the sensor/microcontroller bo
 
 Note: The code in this repository is a work-in-progress. It partially works.
 The working functionality as of December 2020 is:
-* Ability to report the ambient light level
-* Ability to chart the ambient light level
+* Ability to report the ambient light level or analog sensor data
+* Ability to chart the ambient light level or analog sensor data
+* Ability to forward data to the cloud via MQTT
 <img src="images/casio-report.jpg" width="320" style="float:left">
 
 The known issues are:
@@ -98,5 +99,7 @@ number of tokens found: 1
 
 ## Parts Required
 Not a lot is needed to create this project. Apart from the calculator (Casio fx-CG50) all that is required is a microcontroller board with 3.3V logic levels, and a 2.5mm 3-way plug (like a headphone plug but thinner). And some wire.
-The **Thunderboard Sense 2** is a suitable USB-powered microcontroller board with many in-built sensors. For the plug, **Multicomp PSG01492** works, however the plastic outer barrel is too wide in diameter, and won't allow the plug to click into place properly. The barrel needs to be removed. I used heatshrink sleeving instead, because it is thinner. Refer to the [connections diagram](hardware-connections.md) to see how to wire the plug to the Thunderboard. 
+The **Thunderboard Sense 2** is a suitable USB-powered microcontroller board with many in-built sensors, and it is easy to start with. However, it cannot directly connect to the cloud. If the ability to connect to Microsoft IoT Central is required, then **ESP32** based boards can be used. 
+
+For the plug, **Multicomp PSG01492** works, however the plastic outer barrel is too wide in diameter, and won't allow the plug to click into place properly. The barrel needs to be removed. I used heatshrink sleeving instead, because it is thinner. Refer to the [connections diagram](hardware-connections.md) to see how to wire the plug to the Thunderboard. 
 
