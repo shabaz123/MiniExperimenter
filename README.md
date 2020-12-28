@@ -48,7 +48,7 @@ CloseComport38k
 V
 ```
 
-In brief, the communication uses lists of three values. The first value is a magic code of 2001. The second value in the list is 1 which is a magic code to instruct the microcontroller to prepare to capture a sensor sample. The third value is currently unused, and is set to 99 here. The variable V captures the sensor measurement. Next, the list is modified such that the second value is now 21, which is a magic value that instructs the microcontroller to forward the next value in the list via MQTT to IoT Central. 
+In brief, the communication uses lists of three values. The first value is a magic code of 2001. The second value in the list is 1 which is a magic code to instruct the microcontroller to prepare to capture a sensor sample. The third value is currently unused, and is set to 99 here. The variable V captures the sensor measurement. Next, the list is modified such that the second value is now 21, which is a magic value that instructs the microcontroller to forward the next value in the list via MQTT to IoT Central. After the data has been sent, the last line in the program displays the value that was previously captured and then forwarded to IoT Central.
 
 ## How does the code work?
 The Casio calculator uses a [special protocol](protocol.md) to be able to send and receive values from the microcontroller/sensor board. By sending certain configuration values, the calculator instructs the microcontroller to set up it's hardware for particular channels, type of sensor, and the desired rate and number of samples. The microcontroller performs the measurements and sends the data to the calculator.
