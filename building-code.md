@@ -64,5 +64,19 @@ You can now plug the board into the Casio calculator, and run the E-CON4 applica
 
 ## ESP32-WROOM-32 (ESP32) modules/boards
 The ESP32-WROOM-32 is a compact (stamp-sized) surface-mount module which is available on its own, or soldered onto boards. Although this project supports ESP32, it is a slightly more advanced exercise to get it going compared to the Thunderboard Sense 2. To get the ESP32 code built entails installing a software development kit (SDK) (which itself relies on installing Python), whereas code for the Thunderboard Sense 2 can be built with a few clicks in a browser, since the Mbed environment it uses can be cloud based.
-More details to follow.
+
+Follow the steps at the Espressif website to install the tools. As part of the instructions you will be installing ESP-IDF tools, Python 3.x (do not use the default Python 2.7)
+The code was tested with ESP-IDF release 4.1. After everything is installed, you will have an ISP-IDF Command Prompt installed on your PC. You will use the command prompt to build and to transfer the final binary file onto the ESP32 board.
+
+NOTE: the instructions here are incomplete; the ESP32 code still needs to be uploaded to Github, this will occur in the coming days.
+
+To build the code, the command is:
+
+idf.py build
+
+To upload the binary file, plug the USP32 board into your PC and a USB serial port should appear. Use Windows Device Manager to identify the COM port number, for instance COM port number 5. Next, set the ESP32 board into a boot mode by pulling GPIO0 low, pressing and releasing RESET, and then releasing GPIO0. Then enter the following command:
+
+idf.py -p COM5 -b 115200 flash
+
+After a minute or so, the board will be programmed, and you can press the RESET button to start the code. If you wish to see what the program is doing, then use a Serial Terminal program such as PuTTY, open the serial port for 115200 baud, 8-N-1, with no flow control, and then press the Reset button on the ESP32, and you should start to see debug output appear.
 
