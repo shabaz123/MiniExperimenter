@@ -12,7 +12,7 @@ Note that the 2.5 mm plug barrel needs to be quite narrow (7.5 mm or less) becau
 If you cannot find a narrow barrel, you could discard it and use heatshrink as shown in the photo below.
 <img src="images/thunderboard-soldered.jpg" width="640" style="float:left">
 
-##ESP32
+## ESP32
 The ESP32 is available is several variants, and there are multiple boards available from different manufacturers. The code was tested using an ESP32-WROOM-32 module. The required connections from the 2.5mm 3-way plug to the ESP32 are:
 
 * CASIO_RX (Ring) connects to GPIO17
