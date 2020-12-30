@@ -3,7 +3,7 @@ The Thunderboard Sense 2, like other Mbed-enabled boards, actually contains two 
 
 With new Thunderboards, it is likely that the firmware for the debugger microcontroller needs upgrading, before you can transfer the target code into the main microcontroller.
 
-The prodecure here can be used to perform the upgrade. 
+The procedure here can be used to perform the upgrade. 
 
 First download a development environment called Simplicity Studio 5 from https://www.silabs.com/developers/simplicity-studio
 
