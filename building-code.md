@@ -68,11 +68,18 @@ The ESP32-WROOM-32 is a compact (stamp-sized) surface-mount module which is avai
 Follow the steps at the Espressif website to install the tools. As part of the instructions you will be installing ESP-IDF tools, Python 3.x (do not use the default Python 2.7)
 The code was tested with ESP-IDF release 4.1. After everything is installed, you will have an ISP-IDF Command Prompt installed on your PC. You will use the command prompt to build and to transfer the final binary file onto the ESP32 board.
 
-NOTE: the instructions here are incomplete; the ESP32 code still needs to be uploaded to Github, this will occur in the coming days.
+Copy the code from GitHub and place it somewhere on your computer, for example a path could be:
+C:\development\miniexperimenter\code\esp-mini-exp
 
-To build the code, the command is:
+To build the code, open up the ESP-IDF command prompt, navigate to the path (such as C:\development\miniexperimenter\code\esp-mini-exp) and then type:
+
+(optional): idf.py fullclean
+
+To perform the build, type:
 
 idf.py build
+
+It should create some files in a path C:\development\miniexperimenter\code\esp-mini-exp\build in particular a file called mini_experimenter.bin
 
 To upload the binary file, plug the USP32 board into your PC and a USB serial port should appear. Use Windows Device Manager to identify the COM port number, for instance COM port number 5. Next, set the ESP32 board into a boot mode by pulling GPIO0 low, pressing and releasing RESET, and then releasing GPIO0. Then enter the following command:
 
