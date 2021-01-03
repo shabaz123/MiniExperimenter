@@ -7,15 +7,21 @@ This repository contains the code that will run on the sensor/microcontroller bo
 <img src="images/casio-chart.jpg" width="320" style="float:left">
 
 Note: The code in this repository is a work-in-progress. It partially works. Two microcontroller boards are supported. One board (Thunderboard Sense 2) has more limited Mini Experimenter functionality, but it is easier to use for beginners. The other board (ESP32) supports a lot more Mini Experimenter functionality, and will be the main platform that will continue to have functionality added.
-The working functionality as of December 2020 for the Thunderboard Sense 2 is:
-* Ability to report the ambient light level or analog sensor data
-* Ability to chart the ambient light level or analog sensor data
+
 The working functionality for the ESP32 is:
 * Ability to monitor the voltage on three analog channels
 * Ability to chart the data from any number of channels (1-3) simultaneously, at rates of 5Hz or slower, in real-time
 * Experimental ability to capture data from one channel at high speed, limited to 512 samples total currently
 * Ability to forward data to the cloud via MQTT
+
+The working functionality as of December 2020 for the Thunderboard Sense 2 is:
+* Ability to report the ambient light level or analog sensor data
+* Ability to chart the ambient light level or analog sensor data
+
 <img src="images/casio-report.jpg" width="320" style="float:left">
+
+The known issues for the ESP32 version are:
+* High speed capture (faster than 5Hz) is not really usable. It is limited to 512 samples, and only works for one channel. 
 
 The known issues for the Thunderboard Sense 2 version are:
 * The light level is currently in arbitrary units, it is not in Lux
@@ -39,9 +45,7 @@ To use the project, at a high level, there are these main steps which are descri
 * If you're using a board that can connect to Microsoft IoT Central, then data can be captured by the calculator and locally processed, and then sent back to the microcontroller board for onward forwarding via a protocol called MQTT. This functionality needed a new procedure, which will be called the 2001 protocol : ) It has been tested with ESP32 microcontroller boards. To use it, create a program on the calculator (press the Menu button and then use the cursor keys to select Program, and then press EXE) such as the example shown here:
 
 ```
-2001->List 1[1]
-1->List 1[2]
-99->List 1[3]
+{2001,1,99}->List 1
 OpenComport38k
 Send38k List 1
 Receive38k V
