@@ -87,3 +87,4 @@ idf.py -p COM5 -b 115200 flash
 
 After a minute or so, the board will be programmed, and you can press the RESET button to start the code. If you wish to see what the program is doing, then use a Serial Terminal program such as PuTTY, open the serial port for 115200 baud, 8-N-1, with no flow control, and then press the Reset button on the ESP32, and you should start to see debug output appear.
 
+To enable the IoT connection, edit the file miniexp.h and uncomment the line containing #define WITH_IOT and then Microsoft's IoT Central ESP32 SDK needs to be installed, and then the code can be rebuilt using the 'idf.py build' command as earlier. The full instructions to do that will be documented later, since it requires some tweaks to the SDK.
