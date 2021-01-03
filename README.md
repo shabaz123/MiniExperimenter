@@ -6,14 +6,18 @@ This repository contains the code that will run on the sensor/microcontroller bo
 
 <img src="images/casio-chart.jpg" width="320" style="float:left">
 
-Note: The code in this repository is a work-in-progress. It partially works.
-The working functionality as of December 2020 is:
+Note: The code in this repository is a work-in-progress. It partially works. Two microcontroller boards are supported. One board (Thunderboard Sense 2) has more limited Mini Experimenter functionality, but it is easier to use for beginners. The other board (ESP32) supports a lot more Mini Experimenter functionality, and will be the main platform that will continue to have functionality added.
+The working functionality as of December 2020 for the Thunderboard Sense 2 is:
 * Ability to report the ambient light level or analog sensor data
 * Ability to chart the ambient light level or analog sensor data
+The working functionality for the ESP32 is:
+* Ability to monitor the voltage on three analog channels
+* Ability to chart the data from any number of channels (1-3) simultaneously, at rates of 5Hz or slower, in real-time
+* Experimental ability to capture data from one channel at high speed, limited to 512 samples total currently
 * Ability to forward data to the cloud via MQTT
 <img src="images/casio-report.jpg" width="320" style="float:left">
 
-The known issues are:
+The known issues for the Thunderboard Sense 2 version are:
 * The light level is currently in arbitrary units, it is not in Lux
 * The time axis on the charts is not usable, because the code just sends the measured light level as it becomes available, and not at the required intervals. To fix this, a timer needs to be implemented in the code.
 * If the calculator sends an error message, the code doesn't recover gracefully in all circumstances, because code still needs to be written to gracefully recover in all states. This means that the Reset button on the microcontroller board needs to be pressed to manually recover.
