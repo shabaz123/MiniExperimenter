@@ -1194,14 +1194,14 @@ void casio_uart_processor(int events) {
                         case HL_ME_STATUS:
                             if(DEVELOPER) USB_PRINT("HL_ME_STATUS: sending ME status to Casio\r\n");
                             if(PINGPONG) USB_PRINT("  |<------[MINIEXP STATUS]---------|\r\n");
-                            av='0';
+                            av='1';
                             wifi_ap_record_t apinfo;
                             if (esp_wifi_sta_get_ap_info(&apinfo)==ESP_OK) {
-                                av ='1'; // WiFi is connected
+                                av ='2'; // WiFi is connected
                                 if (get_year()>=2021) {
-                                    av ='2'; // NTP is working
+                                    av ='3'; // NTP is working
                                     if (iot_connection_ok==1) {
-                                        av ='3'; // IoT connection is ok
+                                        av ='4'; // IoT connection is ok
                                     }
                                 }
                             }
